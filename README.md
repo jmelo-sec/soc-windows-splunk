@@ -62,6 +62,32 @@ Each detection answers a specific SOC question:
 - *Is suspicious authentication activity occurring?*
 - *Has the suspicious activity resulted in a successful login?*
 
+### Brute Force Authentication Detection (Tier 1)
+
+This detection identifies repeated failed authentication attempts (Event ID 4625)
+against a Windows endpoint, commonly associated with brute-force or password spraying activity.
+
+![Brute force detection](screenshots/04-detections/09-bruteforce.png)
+
+### Correlation: Successful Login After Multiple Failures
+
+This detection correlates multiple failed authentication attempts (Event ID 4625)
+followed by a successful logon (Event ID 4624), indicating possible credential compromise.
+
+![Correlation detection](screenshots/04-detections/11-correlation_fail_success.png)
+
+### SOC Triage View
+
+This view represents how correlated authentication alerts are presented
+to a SOC analyst for validation and escalation.
+
+![SOC triage view](screenshots/04-detections/12-report_correlation_fail_success.png)
+
+## Additional Evidence
+
+Additional screenshots showing Windows audit configuration, log ingestion,
+and intermediate detection steps are available in the `/screenshots` directory.
+
 ---
 
 ## Data Ingestion and Parsing Approach
