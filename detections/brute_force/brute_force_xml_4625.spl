@@ -1,0 +1,7 @@
+index=main source="WinEventLog:Security" "<EventID>4625</EventID>"
+| rex field=_raw "<Data Name='TargetUserName'>(?<user>[^<]+)"
+| rex field=_raw "<Data Name='IpAddress'>(?<ip>[^<]+)"
+| bin _time span=5m
+| stats count as fails by _time, user, ip
+| where fails >= 3
+| sort - fails

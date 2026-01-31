@@ -1,0 +1,7 @@
+index=main source="WinEventLog:Security"
+| rex field=_raw "<EventID>(?<eid>\\d+)</EventID>"
+| rex field=_raw "<Data Name='TargetUserName'>(?<user>[^<]+)"
+| eval success=if(eid=="4624",1,0)
+| eval failure=if(eid=="4625",1,0)
+| stats sum(failure) as fails sum(success) as success by user
+| where fails>=1 AND success>=1
