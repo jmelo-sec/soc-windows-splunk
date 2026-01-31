@@ -74,14 +74,14 @@ against a Windows endpoint, commonly associated with brute-force or password spr
 This detection correlates multiple failed authentication attempts (Event ID 4625)
 followed by a successful logon (Event ID 4624), indicating possible credential compromise.
 
-![Correlation detection](screenshots/04-detections/11-correlation fail success.png)
+![Correlation detection](screenshots/04-detections/11-correlation_fail_success.png)
 
 ### SOC Triage View
 
 This view represents how correlated authentication alerts are presented
 to a SOC analyst for validation and escalation.
 
-![SOC triage view](screenshots/04-detections/12-report_correlation fail success.png)
+![SOC triage view](screenshots/04-detections/12-report_correlation_fail_success.png)
 
 ## Additional Evidence
 
