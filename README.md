@@ -1,4 +1,4 @@
-# SOC Windows Endpoint Detection – Splunk
+# SOC Windows Endpoint Detections with Splunk
 
 This project implements a mini Security Operations Center (SOC) focused on detecting suspicious authentication activity on Windows endpoints using Splunk.
 
@@ -12,6 +12,7 @@ The goal of this project is to demonstrate practical SOC detection engineering s
 - Detection of brute force login attempts
 - Correlation of failed and successful logons
 - Clear separation of SOC Tier 1 and Tier 2 detections
+- Focus on high-signal detections rather than high-volume alerts
 
 ---
 
@@ -78,6 +79,10 @@ This reflects realistic constraints often found in standalone Splunk deployments
 - **T1110 – Brute Force**
 - **T1078 – Valid Accounts**
 
+These techniques were selected to demonstrate both pre-compromise
+(brute force) and post-compromise (valid account usage) detection scenarios.
+
+
 ---
 
 ## SOC Analyst Perspective
@@ -91,6 +96,15 @@ This reflects realistic constraints often found in standalone Splunk deployments
 - Investigate correlated authentication events
 - Assess potential account compromise
 - Escalate incidents and recommend response actions
+
+---
+
+## What This Project Demonstrates
+
+- Windows authentication log analysis
+- SPL-based detection logic
+- Event correlation for alert fidelity
+- SOC Tier 1 → Tier 2 escalation thinking
 
 ---
 
